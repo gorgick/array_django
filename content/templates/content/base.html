@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
-<h1>hello</h1>
+<h2>Work schedule</h2>
 <div class="container">
     <div class="row">
         <table class="table">
@@ -23,42 +23,49 @@
             <tr>
                 {% csrf_token %}
                 <th scope="row">
-                    <button class="btn btn-success" data-value="1">1</button>
+                    <button class="btn btn-success" data-value="1">Monday</button>
                 </th>
-                <td class="td" rowspan="7"></td>
+                <td class="td" rowspan="7">
+                    <ul>
+
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <th scope="row">
-                    <button class="btn btn-success" data-value="2">2</button>
-                </th>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <button class="btn btn-success" data-value="3">3</button>
-                </th>
-            </tr>
-            <tr>
-                <th scope="row">
-                    <button class="btn btn-success" data-value="4">4</button>
+                    <button class="btn btn-success" data-value="2">Tuesday</button>
                 </th>
             </tr>
             <tr>
                 <th scope="row">
-                    <button class="btn btn-success" data-value="5">5</button>
+                    <button class="btn btn-success" data-value="3">Wednesday</button>
                 </th>
             </tr>
             <tr>
                 <th scope="row">
-                    <button class="btn btn-success" data-value="6">6</button>
+                    <button class="btn btn-success" data-value="4">Thursday</button>
                 </th>
             </tr>
             <tr>
                 <th scope="row">
-                    <button class="btn btn-success" data-value="7">7</button>
+                    <button class="btn btn-success" data-value="5">Friday</button>
+                </th>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <button class="btn btn-success" data-value="6">Saturday</button>
+                </th>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <button class="btn btn-success" data-value="7">Sunday</button>
                 </th>
             </tr>
             </tbody>
         </table>
+        <a href="#" class="btn btn-secondary" onclick="location.reload(); return false;">
+            Refresh page
+        </a>
     </div>
 </div>
 </body>

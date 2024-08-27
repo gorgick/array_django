@@ -11,9 +11,8 @@ class AjaxHandler(View):
         return render(request, 'content/base.html')
 
     def post(self, request, *args, **kwargs):
-        print(request.body)
         data = json.loads(request.body)
-        print(data)
-        float_num = data['number']
-        workers = list(Work.objects.filter(workdays__contains=[float_num]).values('name'))
-        return JsonResponse({'float': f'You got {float_num}'})
+        num = data['number']
+        day_of_week = data['day']
+        lst = list(Work.objects.filter(workdays__contains=[num]).values('name'))
+        return JsonResponse({'People': f"{day_of_week}: {[i.get('name') for i in lst]}"})

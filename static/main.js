@@ -8,7 +8,8 @@ btns.forEach((btn, i) => {
 async function getNumber(e) {
     const csrf = document.querySelector("[name=csrfmiddlewaretoken]").value
     const number = e.target.dataset.value
-    console.log(number)
+    const day = e.target.innerText
+    let ul = document.querySelector('ul')
     let response = await fetch('/', {
         method: 'post',
         headers: {
@@ -16,8 +17,10 @@ async function getNumber(e) {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrf
         },
-        body: JSON.stringify({number: number})
+        body: JSON.stringify({number: number, day: day})
     })
     let data = await response.json()
-    console.log(await data)
+    let li = document.createElement('li')
+    li.innerText = await data['People']
+    ul.appendChild(li)
 }

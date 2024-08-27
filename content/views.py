@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
 
+from content.models import Work
+
 
 class AjaxHandler(View):
     def get(self, request, *args, **kwargs):
@@ -13,4 +15,5 @@ class AjaxHandler(View):
         data = json.loads(request.body)
         print(data)
         float_num = data['number']
+        workers = list(Work.objects.filter(workdays__contains=[float_num]).values('name'))
         return JsonResponse({'float': f'You got {float_num}'})
